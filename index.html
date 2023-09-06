@@ -42,10 +42,18 @@
     <script type="text/javascript" src="./js/main.js" defer></script>
   </head>
   <body>
-    <div id="app">
-      <h1>Utenti loggati</h1>
-      <ul v-if="randomUserEmails.length === 10">
-        <li v-for="email of randomUserEmails">{{email}}</li>
+    <div class="container text-center p-4" id="app">
+      <h1 class="mb-3 fw-bold">Lista mail fittizzie</h1>
+      <button class="btn btn-dark mb-3" @click="generateRandomMail()">
+        Genera lista
+      </button>
+      <ul class="list-group" v-if="randomUserEmails.length === 10">
+        <li
+          class="list-group-item w-50 mx-auto"
+          v-for="email of randomUserEmails"
+        >
+          {{email}}
+        </li>
       </ul>
     </div>
   </body>
