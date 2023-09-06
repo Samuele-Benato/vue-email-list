@@ -47,7 +47,7 @@
       <button class="btn btn-dark mb-3" @click="generateRandomMail()">
         Genera lista
       </button>
-      <ul class="list-group" v-if="randomUserEmails.length === 10">
+      <ul class="list-group" v-if="randomUserEmails.length >= 10">
         <li
           class="list-group-item w-50 mx-auto"
           v-for="email of randomUserEmails"
