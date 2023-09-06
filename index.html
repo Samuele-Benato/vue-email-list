@@ -42,6 +42,11 @@
     <script type="text/javascript" src="./js/main.js" defer></script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <h1>Utenti loggati</h1>
+      <ul v-if="randomUserEmails.length === 10">
+        <li v-for="email of randomUserEmails">{{email}}</li>
+      </ul>
+    </div>
   </body>
 </html>

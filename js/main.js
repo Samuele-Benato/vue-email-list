@@ -3,17 +3,25 @@ const { createApp } = Vue;
 const app = createApp({
   data() {
     return {
-      randomUserEmail: "",
+      randomUserEmails: [],
     };
   },
+
   mounted() {
-    axios
-      .get("https://flynn.boolean.careers/exercises/api/random/mail")
-      .then((email) => {
-        const randomEmail = email.data.response;
-        this.randomUserEmail = randomEmail;
-        console.log(this.randomUserEmail);
-      });
+    this.generateRandomMail();
   },
-  method: {},
+
+  methods: {
+    generateRandomMail() {
+      for (let i = 0; i < 10; i++) {
+        axios
+          .get("https://flynn.boolean.careers/exercises/api/random/mail")
+          .then((email) => {
+            const randomEmail = email.data.response;
+
+            this.randomUserEmails.push(randomEmail);
+          });
+      }
+    },
+  },
 }).mount("#app");
